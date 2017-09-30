@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Экспертная система</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content="Экспертная система для определения болезни по симптомам"/>
+    <meta name="author" content="Станислав Бурдуковский"/>
+    <meta name="theme-color" content="#01D1B2"/>
+    <link rel="icon" th:href="@{/static/favicon-med.ico}"/>
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/static/css/bulma.css}"/>
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/static/css/font-awesome.min.css}" />
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/static/css/styles.css}" />
+</head>
+<body>
+<section class="hero is-primary is-bold">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">
+                Экспертная система
+            </h1>
+            <h2 class="subtitle">
+                для определения болезни по симптомам
+            </h2>
+        </div>
+    </div>
+</section>
+<div id="main_section" class="container">
+    <section class="section">
+        <div class="content">
+            <h2 id="question" class="has-text-centered">Выберите часть тела, которая Вас беспокоит</h2>
+            <div id="content" class="has-text-centered">
+                <button class="button is-primary is-large disease-type-button"
+                        th:each="item : ${diseaseTypes}"
+                        th:text="${item.name}"
+                        th:attr="data-id=${item.id}">
+                </button>
+            </div>
+        </div>
+    </section>
+</div>
+<section class="hero is-primary">
+    <div class="hero-body">
+        <div class="container">
+            <div class="has-text-centered">
+                <a id="yes_button" class="button is-primary is-inverted is-outlined is-large is-hidden">Да</a>
+                <a id="no_button" class="button is-primary is-inverted is-outlined is-large is-hidden">Нет</a>
+                <a id="restart" class="button is-primary is-inverted is-outlined is-large is-hidden">
+                    Попробовать ещё раз</a>
+            </div>
+        </div>
+    </div>
+</section>
+<footer class="footer">
+    <div class="container">
+        <div class="content has-text-centered">
+            <p>
+                <strong>Экспертная система</strong> для определения болезни по симптомам
+            </p>
+            <p>
+                Проект носит информационный характер. Рекомендуем получить полную консультацию только у врача!
+            </p>
+            <hr/>
+            <p>
+                <a class="icon" href="http://burdukowsky.tk/contacts" target="_blank">
+                    <i class="fa fa-globe"></i>
+                </a>
+            </p>
+        </div>
+    </div>
+</footer>
+<script th:src="@{/static/js/jquery-3.2.1.min.js}"></script>
+<script th:src="@{/static/js/work.js}"></script>
+</body>
+</html>
